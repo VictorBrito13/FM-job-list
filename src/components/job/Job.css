@@ -22,6 +22,15 @@
 .job-company, .job-tag {
   color: var(--desaturated-dark-cyan);
   font-weight: bolder;
+  cursor: pointer;
+}
+.job-position {
+  cursor: pointer;
+  transition: color .2s linear;
+}
+.job-position:hover {
+  transition: color .2s linear;
+  color: var(--desaturated-dark-cyan);
 }
 .job-new, .job-featured {
   outline: 1px solid;
@@ -36,11 +45,30 @@
 .job-featured {
   background-color: var(--very-dark-grayish-cyan);
 }
+.job-info__container {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .job-info {
   color: var(--dark-grayish-cyan);
+  position: relative;
+}
+.job-info-decoration {
+  height: 5px;
+  width: 5px;
+  background-color: var(--dark-grayish-cyan);
+  border-radius: 50%;
 }
 .job-tag {
   padding: 10px;
   background-color: var(--light-grayish-cyan_background);
   border-radius: 5px;
+  transition: color .2s linear, background-color .2s linear;
+}
+.job-tag:hover {
+  transition: background-color .2s linear;
+  color: var(--white);
+  background-color: var(--desaturated-dark-cyan);
 }

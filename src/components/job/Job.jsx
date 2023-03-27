@@ -33,10 +33,12 @@ export default function Job(props) {
           {newJob ? <span className="job-new">NEW!</span> : null}
           {featured ? <span className="job-featured">FEATURED</span> : null}
         </div>
-        <h2>{position}</h2>
-        <div>
-          <span className="job-info">{postedAt}</span> &nbsp;
-          <span className="job-info">{contract}</span> &nbsp;
+        <h2 className="job-position">{position}</h2>
+        <div className="job-info__container">
+          <span className="job-info">{postedAt}</span>
+          <span className="job-info-decoration"></span>
+          <span className="job-info">{contract}</span>
+          <span className="job-info-decoration"></span>
           <span className="job-info">{location}</span>
         </div>
       </div>
