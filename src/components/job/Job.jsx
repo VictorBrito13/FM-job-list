@@ -1,0 +1,66 @@
+/*
+* NOTE:
+  newJob && featured: boolean
+*/
+
+import "./Job.css";
+
+export default function Job(props) {
+  const {
+    company,
+    logo,
+    featured,
+    position,
+    role,
+    level,
+    postedAt,
+    contract,
+    location,
+    languages,
+    tools,
+  } = props.job;
+  const newJob = props.job.new;
+
+  return (
+    <div className={"job-container " + (featured ? "featured": "")}>
+      <figure className="logo-container">
+        <img src={logo} />
+      </figure>
+
+      <div className="job-info-container">
+        <div>
+          <span className="job-company">{company}</span> &nbsp;
+          {newJob ? <span className="job-new">NEW!</span> : null}
+          {featured ? <span className="job-featured">FEATURED</span> : null}
+        </div>
+        <h2>{position}</h2>
+        <div>
+          <span className="job-info">{postedAt}</span> &nbsp;
+          <span className="job-info">{contract}</span> &nbsp;
+          <span className="job-info">{location}</span>
+        </div>
+      </div>
+
+      <div className="job-tags">
+        <span className="job-tag" title="role">{role}</span>
+        <span className="job-tag" title="level">{level}</span>
+        {/* Languages */}
+        {
+          languages.map((language, index) => (
+            <span className="job-tag" title="language" key={index}>
+              {language}
+            </span>
+          ))
+        }
+        {/* tools */}
+        {
+          tools.map((tool, index) => (
+            <span className="job-tag" title="tools" key={index}>
+              {tool}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+  );
+}

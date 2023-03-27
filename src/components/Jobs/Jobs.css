@@ -1,0 +1,18 @@
+.jobs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 95%;
+  margin: auto;
+  padding: 10px 0px;
+}
+
+.job-company {
+  font-weight: bolder;
+}
+
+.job-tags {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
