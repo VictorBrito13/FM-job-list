@@ -17,9 +17,10 @@ export default function Job(props) {
     contract,
     location,
     languages,
-    tools,
+    tools
   } = props.job;
   const newJob = props.job.new;
+  const { setFilters, filters } = props.state
 
   return (
     <div className={"job-container " + (featured ? "featured": "")}>
@@ -44,20 +45,47 @@ export default function Job(props) {
       </div>
 
       <div className="job-tags">
-        <span className="job-tag" title="role">{role}</span>
-        <span className="job-tag" title="level">{level}</span>
+        <span
+        className="job-tag"
+        title="role"
+        onClick={() => {
+          setFilters(new Set([...filters, role]))
+        }}>
+          {role}
+        </span>
+
+        <span
+        className="job-tag"
+        title="level"
+        onClick={() => {
+          setFilters(new Set([...filters.add(level)]))
+        }}>
+          {level}
+        </span>
+
         {/* Languages */}
         {
           languages.map((language, index) => (
-            <span className="job-tag" title="language" key={index}>
+            <span
+            className="job-tag"
+            title="language" key={index}
+            onClick={() => {
+              setFilters(new Set([...filters.add(language)]))
+            }}>
               {language}
             </span>
           ))
         }
+
         {/* tools */}
         {
           tools.map((tool, index) => (
-            <span className="job-tag" title="tools" key={index}>
+            <span
+            className="job-tag"
+            title="tools" key={index}
+            onClick={() => {
+              setFilters(new Set([...filters.add(tool)]))
+            }}>
               {tool}
             </span>
           ))
